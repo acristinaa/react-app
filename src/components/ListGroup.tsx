@@ -1,12 +1,13 @@
 import { useState } from "react";
+interface ListGroupProps {
+    items: string[]
+    heading: string;
+}
 
-function ListGroup() {
+function ListGroup(props: ListGroupProps) {
   let items = ["New York", "San Francisco", "Tokyo", "London", "Paris"];
-  let selectedIndex = 0;
-  //Hook
-  const arr = useState(-1);
-  arr[0] // variable (selectedIndex)
-  arr[1] //updater function
+  const [selectedIndex, setSelectedIndex] = useState(-1);
+
 
   return (
     <div>
@@ -22,7 +23,7 @@ function ListGroup() {
             }
             key={item}
             onClick={() => {
-              selectedIndex = index;
+              setSelectedIndex(index);
             }}
           >
             {item}
